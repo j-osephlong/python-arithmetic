@@ -172,4 +172,4 @@ class solve(object):
 		terms.pop(t + 1)
 
 
-solve("root4 (4 * 4) ^ 2")
+solve(input(">"))
