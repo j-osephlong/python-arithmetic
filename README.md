@@ -53,7 +53,7 @@ Use root to get the n^th root from the following number
     
     Gets the 2nd root or square root from x
     
-    *(keep in mind variables are not yet supported)*
+  *(keep in mind variables are not yet supported)*
     
 If the operator *root* is used without a following number it defaults to the second root or *2root*/*root2*
 
