@@ -47,11 +47,11 @@ Use root to get the n^th root from the following number
   
     2root x
     
-      *or*
+      or
       
     root2 x
     
-    *Gets the 2nd root or square root from x*
+    Gets the 2nd root or square root from x
     
     *(keep in mind variables are not yet supported)*
     
@@ -108,11 +108,11 @@ If the operator *root* is used without a following number it defaults to the sec
   
     cos x
     
-      *or*
+      or
       
     tan x
     
-      *or*
+      or
       
     sin x
     
