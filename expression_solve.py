@@ -1,6 +1,7 @@
 import math
 
-class b_list(object):
+
+class BList(object):
 	expr = None
 	brackets_list = []
 
@@ -40,17 +41,26 @@ class b_list(object):
 				return x[1]
 		return None
 
-class solve(object):
+
+class Solve(object):
+	variables = []
 	def __init__(self, expr):
-		print(self.analyize_expression(expr))
+		print("A:", self.analyize_expression(expr))
 
 	def analyize_expression(self, expr):
+		for t in expr.split(" "):
+			if len(t) == 1:
+				try:
+					float(t)
+				except ValueError:
+					if t not in ["(", ")", "^", "*", "/", "+", "-"] and t not in variables:
+						self.declare_variable(t)
 		if "(" in expr:
 			while "(" in expr:
 				try:
 					for c in range(0, len(expr)):
 							if expr[c] == "(":
-								br = b_list(expr)
+								br = BList(expr)
 								expr = expr.replace(
 									expr[c:br.get_match(c) + 1],
 									self.analyize_expression(expr[c +1:br.get_match(c)]),
@@ -60,9 +70,17 @@ class solve(object):
 		expr = self.solve_expression(expr)
 		return expr
 
+	def declare_variable(self, var):
+		print(var, "=", end = "")
+		self.variables.append((var, float(input(""))))
+
 	def solve_expression(self, expr):
 		terms = expr.split()
 		while len(terms) > 1:
+			for t in range(0, len(terms)):
+				for v in self.variables:
+					if terms[t] == v[0]:
+						terms[t] = v[1]
 			if "pi" in terms:
 				for t in range(0, len(terms)):
 					if terms[t] == "pi":
@@ -171,5 +189,5 @@ class solve(object):
 			terms[t] = str(math.asin(float(terms[t + 1])))
 		terms.pop(t + 1)
 
-
-solve(input(">"))
+while True:
+	Solve(input("Q: "))
